@@ -183,6 +183,20 @@ The official Rust reference implementation is maintained in BIND-19:
 
 ---
 
+## Design Inspiration (Inspired by)
+
+SAP-xCF14 is an **independent implementation**, but its design philosophy is **inspired by** mature infrastructure projects:
+
+- **PROFIsafe (IEC 61784-3, 20+ years)**: Fail-safe communication, forced downgrade to safe state → Rule 6 (Replay-Enable=0 → forced MEDIUM)
+- **TLS 1.3 (RFC 8446, 5+ years)**: Fixed encryption path, no branching → Fixed crypto path (AES-GCM, no "encrypt or not" branch)
+- **IP Protocol Number (RFC 790, 40+ years)**: 1-byte upper-layer protocol identifier → Sub-protocol ID (0x01 for SAP-xCF14)
+
+> "Inspired by" means: we learned the design ideas, implemented independently. Ideas are not copyrightable; this is open-source etiquette, not a legal obligation.
+
+See the full conceptual isomorphism table in [BIND-19 README Appendix](https://github.com/CommonIntents/BIND-19#appendix-design-inspiration--conceptual-isomorphism-inspired-by).
+
+---
+
 ## License
 
 Apache 2.0 — see [LICENSE](LICENSE).
